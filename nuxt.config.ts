@@ -1,6 +1,14 @@
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      apiBase: 'https://pokeapi.co/api/v2'  
+    }
+  },
+  alias: {
+    assets: "/<rootDir>/assets",
+  },
   devtools: { enabled: true },
   app: {
     head: {
@@ -30,6 +38,7 @@ export default defineNuxtConfig({
         config.plugins.push(vuetify({ autoImport: true }))
       })
     },
+    '@pinia/nuxt',
     //...
   ],
   vite: {
